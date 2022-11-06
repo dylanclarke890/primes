@@ -1,8 +1,8 @@
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    const testEl = document.getElementById("test");
-    testEl.innerHTML = `2: ${checkPrime(2)}, 3: ${checkPrime(3)}, 4: ${checkPrime(4)}, 5: ${checkPrime(5)}}`;
-  },
-  false
-);
+function testPrimes() {
+  const testEl = document.getElementById("test");
+  const testNumbers = [2, 3, 4, 5, 7, 9, 11, 13];
+  const html = testNumbers.map((n) => `${n}: ${checkPrime(n)}`).join(", ");
+  testEl.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", testPrimes, false);

@@ -7,3 +7,5 @@ function factorial(n) {
 function checkPrime(n) {
   return Number.isInteger((factorial(n - 1) + 1) / n);
 }
+
+function getPrime(n) {}
