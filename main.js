@@ -1,13 +1,7 @@
 function factorial(n) {
   let total = 1;
-  for (let i = 2; i <= n; i++) total = total * i;
+  for (let i = 2; i <= n; i++) total *= i;
   return total;
-}
-
-function isPrime(n) {
-  if (n < 2) return false;
-  for (let i = 2; i < n; i++) if (n % i == 0) return false; // looping through 2 to n-1
-  return true;
 }
 
 const primes = {
@@ -21,6 +15,12 @@ const primes = {
   9: 23,
   10: 29,
 };
+
+function isPrime(n) {
+  if (n < 2) return false;
+  for (let i = 2; i < n; i++) if (n % i == 0) return false; // looping through 2 to n-1
+  return true;
+}
 
 function getClosestPrimeKeyValuePair(n) {
   const key = Object.keys(primes).reduce((prev, curr) =>
@@ -51,6 +51,7 @@ function nthPrime(n) {
     while (currentSequenceNo >= n) {
       currentSequenceNo--;
       current--;
+      if (primes[currentSequenceNo]) continue;
       while (!isPrime(current)) current--;
       primes[currentSequenceNo] = current;
     }
@@ -58,6 +59,7 @@ function nthPrime(n) {
     while (currentSequenceNo <= n) {
       currentSequenceNo++;
       current++;
+      if (primes[currentSequenceNo]) continue;
       while (!isPrime(current)) current++;
       primes[currentSequenceNo] = current;
     }
